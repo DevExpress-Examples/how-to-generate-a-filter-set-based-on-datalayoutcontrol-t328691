@@ -1,0 +1,35 @@
+﻿<Window x:Class="dxSampleGrid.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:dxSampleGrid"
+        xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+        xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
+        xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
+        xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol"
+        dx:ThemeManager.ThemeName="Office2016White"
+        Title="DXApplication"
+        Height="500"
+        Width="1100"
+        SnapsToDevicePixels="True"
+        UseLayoutRounding="True">
+    <Window.DataContext>
+        <local:MainViewModel/>
+    </Window.DataContext>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+        <dxmvvm:Interaction.Behaviors>
+            <dx:FilteringBehavior x:Name="filteringBehavior" SourceType="{x:Type local:PersonFilteringViewModel}"/>
+        </dxmvvm:Interaction.Behaviors>
+        <dxlc:DataLayoutControl CurrentItem="{Binding Path=FilteringViewModel, ElementName=filteringBehavior}"/>
+        <Grid Grid.Column="1">
+            <dxg:GridControl ItemsSource="{Binding ListPerson}" AutoGenerateColumns="AddNew" FilterCriteria="{Binding Path=FilterCriteria, ElementName=filteringBehavior}">
+                <dxg:GridControl.View>
+                    <dxg:TableView AllowColumnFiltering="False" AllowFilterEditor="False" ShowFilterPanelMode="Never"/>
+                </dxg:GridControl.View>
+            </dxg:GridControl>
+        </Grid>
+    </Grid>
+</Window>
