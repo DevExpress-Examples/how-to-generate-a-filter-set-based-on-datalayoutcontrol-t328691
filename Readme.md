@@ -1,3 +1,10 @@
+<!-- default file list -->
+*Files to look at*:
+
+* [MainViewModel.cs](./CS/dxSampleGrid/MainViewModel.cs) (VB: [MainViewModel.vb](./VB/dxSampleGrid/MainViewModel.vb))
+* **[MainWindow.xaml](./CS/dxSampleGrid/MainWindow.xaml) (VB: [MainWindow.xaml](./VB/dxSampleGrid/MainWindow.xaml))**
+* [PersonFilteringViewModel.cs](./CS/dxSampleGrid/PersonFilteringViewModel.cs) (VB: [PersonFilteringViewModel.vb](./VB/dxSampleGrid/PersonFilteringViewModel.vb))
+<!-- default file list end -->
 # How to generate a filter set based on DataLayoutControl
 
 
